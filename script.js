@@ -136,11 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Directional reveals
     document.querySelectorAll('.story-text').forEach(el => el.classList.add('reveal-left'));
     document.querySelectorAll('.story-visual').forEach(el => el.classList.add('reveal-right'));
-    document.querySelectorAll('.workroad-header, .potion-header').forEach(el => el.classList.add('reveal'));
+    document.querySelectorAll('.workroad-header, .works-header, .potion-header').forEach(el => el.classList.add('reveal'));
     document.querySelectorAll('.contact-inner').forEach(el => el.classList.add('reveal-scale'));
 
     // Staggered reveals for list items
     document.querySelectorAll('.wr-item').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (i * 0.12) + 's';
+    });
+
+    document.querySelectorAll('.work-card').forEach((el, i) => {
         el.classList.add('reveal');
         el.style.transitionDelay = (i * 0.12) + 's';
     });
