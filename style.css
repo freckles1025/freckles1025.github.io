@@ -967,6 +967,10 @@ a.wr-credit-link:hover { text-decoration: underline; }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+    .hero-line-sprouting {
+        font-size: 0.65em;
+    }
+
     .nav-links {
         position: fixed; top: 0; right: -100%;
         width: 75%; height: 100vh;
