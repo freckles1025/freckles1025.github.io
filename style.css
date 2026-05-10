@@ -1012,7 +1012,7 @@ a.wr-credit-link:hover { text-decoration: underline; }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: clamp(2rem, 9.5vw, 3.2rem);
+        font-size: clamp(1.8rem, 8.5vw, 3rem);
         word-break: normal;
         letter-spacing: -.05em;
     }
