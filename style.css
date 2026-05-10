@@ -419,13 +419,16 @@ body::after {
 
 .wr-item.active {
     background: rgba(214,59,122,.08);
+    padding: 0 1.5rem;
+    margin: 0 -1.5rem;
+    border-radius: 8px;
 }
 
 .wr-item-header {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 2.5rem;
-    padding: 2.5rem 0;
+    padding: 3rem 0;
 }
 
 .wr-marker {
@@ -437,7 +440,7 @@ body::after {
     font-size: .82rem; font-weight: 700;
     color: var(--accent);
     letter-spacing: .04em;
-    width: 40px; height: 40px;
+    width: 48px; height: 48px;
     border: 1.5px solid var(--accent);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -496,7 +499,7 @@ body::after {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    padding: 0 0 0 calc(40px + 2.5rem);
+    padding: 0 0 0 calc(48px + 2.5rem);
     transition: max-height .5s var(--ease), opacity .4s var(--ease), padding-bottom .5s;
 }
 
@@ -563,12 +566,14 @@ a.wr-credit-link:hover { text-decoration: underline; }
 }
 
 /* Book hero — left side */
-.works-book {
+.works-book, .works-book:visited, .works-book:hover, .works-book:active {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: sticky;
     top: 6rem;
+    text-decoration: none;
+    color: inherit;
 }
 .works-book-img {
     margin-bottom: 2rem;
@@ -983,7 +988,7 @@ a.wr-credit-link:hover { text-decoration: underline; }
     }
 
     .wr-item-header { gap: 1.5rem; }
-    .wr-expand { padding-left: calc(40px + 1.5rem); }
+    .wr-expand { padding-left: calc(48px + 1.5rem); }
 
     .potion-grid {
         flex-direction: column;
