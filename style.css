@@ -968,7 +968,7 @@ a.wr-credit-link:hover { text-decoration: underline; }
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: clamp(2.2rem, 8vw, 4rem);
+        font-size: clamp(2.6rem, 12vw, 5rem);
     }
 
     .nav-links {
@@ -1016,7 +1016,7 @@ a.wr-credit-link:hover { text-decoration: underline; }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: clamp(2.2rem, 9vw, 3.2rem);
+        font-size: clamp(2.6rem, 12vw, 4rem);
     }
 
     .hero-big-text {
