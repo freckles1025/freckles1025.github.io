@@ -180,6 +180,8 @@ body::after {
 
 .hero-line-accent {
     color: var(--ink);
+    font-size: 1.25em;
+    letter-spacing: -.07em;
 }
 
 .strike {
