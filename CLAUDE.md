@@ -1,95 +1,98 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for working on this repository. The site is the personal page of 김서윤 (Kim Seoyoon), published at https://freckles1025.github.io.
 
-## Project Overview
+## What this site is
 
-This is a modern, neon-themed portfolio/landing page website for Kim Seoyoon PD, a beauty industry AI consultant. It's a static site built with vanilla HTML, CSS, and JavaScript—no build tools, bundlers, or frameworks.
+A single static page. It shows who she is now: since September 2026 her main work is the Yeongdeungpo wig shop 김앤장가발 and its brand 정수리언니. Earlier work (TV헤어 interviews from June 2023, the September 2025 book) stays in Works.
 
-**Stack:** HTML5 + CSS3 + Vanilla JavaScript (ES6+)
+Public names for the business are only 김앤장가발 and 정수리언니. Do not introduce any other company name.
 
-## Development
+Do not invent biography, metrics, or project status. If a URL is unknown, leave the existing TODO in the Works section (`#todo-homepage`) until she supplies it.
 
-There are no build steps or special commands needed. Simply open `index.html` in a browser to view the site.
+## Stack
 
-- **Preview locally:** Open `index.html` directly in your browser, or use a simple HTTP server:
-  ```bash
-  # Using Python
-  python3 -m http.server 8000
-  # Or Node.js
-  npx http-server
-  ```
+HTML, CSS, and a few lines of JavaScript. No build step, no framework, no CDN fonts or animation libraries.
 
-## Architecture & Key Features
+Preview:
 
-### File Structure
-- **index.html** – Single-page HTML with semantic sections (hero, about, portfolio, services, newsletter, footer)
-- **style.css** – All styling with CSS custom properties (variables) for theming
-- **script.js** – Interactive features and animations
+```bash
+python3 -m http.server 8000
+```
 
-### CSS Design System
-The site uses CSS custom properties defined in `:root`:
-- **Neon colors:** `--neon-pink`, `--neon-blue`, `--neon-purple`, `--neon-green`
-- **Beauty theme colors:** `--beauty-rose`, `--beauty-gold`, `--beauty-copper`
-- **Dark theme:** `--dark-bg` (#0a0a0a), `--dark-surface` (#1a1a1a)
-- **Gradients:** `--gradient-neon` (45deg multi-color), `--gradient-beauty` (135deg warm tones)
+Open `index.html` through that server so fonts and images load the same way they will on GitHub Pages.
 
-Sections use CSS Grid for layout and are responsive with media queries at 768px and 480px breakpoints.
+## Files
 
-### JavaScript Interactivity (script.js)
-Key features implemented:
-1. **Smooth scroll navigation** – Anchor links scroll smoothly to sections
-2. **Mobile menu** – Hamburger toggle with animated icon transformation
-3. **Intersection Observer** – Fade-in animation for elements as they enter viewport (portfolio items, stat items, service cards)
-4. **Parallax effects** – Hero content and neon circle move as user scrolls
-5. **Mouse-tracking neon effect** – `.neon-text` elements brighten and scale when cursor is within 200px
-6. **3D portfolio card hover** – Portfolio items rotate based on mouse position (perspective 3D)
-7. **Button ripple effect** – Animated ripple on button clicks
-8. **Progress bar** – Fixed bar at top that fills as user scrolls
-9. **Type-writer effect** – Hero title animates in character-by-character
-10. **Newsletter form** – Displays success modal on submit
+- `index.html` — the page
+- `style.css` — all styling, including `@font-face` and `prefers-reduced-motion`
+- `script.js` — mobile menu only (close on link, Escape, and outside click). The page is readable with this file blocked.
+- `img/` — portrait, book cover, mark, favicon, grain, Open Graph image
+- `fonts/` — subset Pretendard (400, 600, 700)
+- `scripts/subset-fonts.py` — rebuilds those font files after copy changes
+- `docs/before-after/` — screenshots from the October 2026 refresh
 
-### Animation Highlights
-- **Neon flicker** – 2s oscillating opacity for neon text
-- **Pulse** – 3s scale animation on neon circle
-- **Grid movement** – Infinite translation on background grid
-- **Shimmer** – 3s translation effect on post/image overlays
-- **Particles** – 5s rotation and scale on particle elements
+## Sections
 
-## Common Development Tasks
+| id | Role |
+| --- | --- |
+| `#home` | Name, current line, short bio, FRECKLES line, portrait |
+| `#now` | 김앤장가발 / 정수리언니: branding, TikTok lives, short and long video, and the shop AI work |
+| `#works` | TV헤어 interviews, the book, 정수리언니 homepage. Each row is a `<details>` element |
+| `#values` | Teach Forward, plus the two public goals |
+| `#ai` | Agents she designed, and the rule that she approves anything that goes out |
+| `#contact` | hyggelife25@gmail.com and Instagram @seoyoon.pd. She is open to lecture invitations |
 
-### Updating Content
-- **Navigation links** – Edit `<nav class="navbar">` (line 13–30)
-- **Hero section** – Edit `<section id="home" class="hero">` (line 33–54)
-- **Portfolio items** – Add/remove `.portfolio-item` divs in `<section id="portfolio">` (line 104–142)
-- **Services** – Add/remove `.service-card` divs in `<section id="services">` (line 156–179)
+## Design
 
-### Styling Adjustments
-- **Color changes** – Update CSS custom properties in `:root` (style.css, lines 7–21)
-- **Font sizes** – Adjust `clamp()` values in section titles for responsive scaling
-- **Animation speed** – Modify animation duration values (e.g., `2s`, `3s`)
-- **Breakpoints** – Media queries at 768px (tablets) and 480px (mobile) control responsive behavior
+Editorial and quiet, matched to the black-and-white portrait. The palette lives in `:root`:
 
-### Interactive Feature Adjustments
-- **Smooth scroll behavior** – script.js line 9 (in `scrollIntoView()`)
-- **Mouse tracking distance** – script.js line 111 (distance threshold is 200px)
-- **Portfolio 3D rotation sensitivity** – script.js lines 224–225 (adjust division values)
-- **Newsletter success message duration** – script.js line 152 (3000ms timeout)
-- **Type-writer speed** – script.js line 247 (50ms per character)
+- Paper `--bg` `#F0EDE8`, cream `--cream` `#F5F2EC`, surface `--surface` `#E8E4DD`
+- Ink `--ink` `#111111`, secondary ink `--ink-2` `#2A2826`
+- Accent `--accent` `#D63B7A` for rules, dots, and large marks
+- `--accent-ink` `#8E1B4E` for small pink text (the pure accent is below 4.5:1 on paper)
+- `--text-soft` `#5C564E` for secondary text. `--muted` `#7A756E` is the original swatch and is too light for small type
 
-## Mobile Responsiveness
+Type is Pretendard only. Weights in use are 400, 600, and 700.
 
-Responsive design is handled via CSS media queries:
-- **≤768px (tablets)** – Single-column layout, hamburger menu, simplified grid layouts
-- **≤480px (mobile)** – Smaller font sizes, reduced padding/margins, stacked flex layouts
+The portrait is the hero image. Her gaze points to the right of the frame, so on wide screens the photo sits on the left and the words on the right. On small screens the words come first, in normal flow, with no animation required to see them.
 
-The hamburger menu (`<div class="hamburger">`) is hidden on desktop and shown on mobile. Script.js line 26 dynamically injects media-query styles for the mobile menu animation.
+## Motion and accessibility
 
-## Notes for Future Development
+Nothing starts at `opacity: 0`. If JavaScript does not run, every section is still visible and the works rows still open, because they are native `<details>`.
 
-- **No external dependencies required** (except Google Fonts and Instagram CDN for image)
-- **SEO:** Page has `<meta>` tags and semantic HTML (`<header>`, `<section>`, `<footer>`)
-- **Accessibility:** Consider adding ARIA labels if expanding interactivity
-- **Image placeholder:** Profile image URL (line 48) is a placeholder and should be replaced with real image
-- **Newsletter handling:** Form collects email but currently only shows local success message; no backend integration
-- **Browser compatibility:** Uses modern CSS (Grid, custom properties) and ES6+ JavaScript; test in older browsers if needed
+`prefers-reduced-motion: reduce` turns off smooth scrolling and any duration-based animation.
+
+Works summaries are real `<summary>` elements: keyboard (Enter and Space), touch, and screen readers get the expanded state. Narrow screens open a `<details>` menu without script. From 860px up, a separate `<nav>` is shown and that menu is hidden. A closed `<details>` stays out of the tab order, so the wide-screen links are not nested inside it.
+
+Keep visible text at least `#5C564E` on paper and `#D9D3C8` on ink. Focus uses a 2px accent outline.
+
+## Images
+
+The studio portrait and the book cover are shipped as AVIF and WebP `srcset`s, with a JPEG fallback. Each file is kept under about 300KB. `img/og.jpg` is the 1200×630 social image and is referenced with an absolute URL.
+
+`img/mark.webp` is the small freckles drawing used beside the wordmark. The old multi-megabyte PNG and JPEG originals are not part of the page.
+
+## Fonts
+
+`scripts/subset-fonts.py` reads `index.html` and `style.css`, downloads Pretendard, and subsets it. Run it after changing copy:
+
+```bash
+python3 scripts/subset-fonts.py
+```
+
+Missing syllables fall back to Apple SD Gothic Neo, Noto Sans KR, or Malgun Gothic when those are installed. Linux without a Korean font will show blanks for any character left out of the subset.
+
+## Copy
+
+Write in warm, plain Korean. No hype (최초, 압도, 시너지, and similar). Keep these lines as they are:
+
+- 남들이 지우라 한 것들이 곧 나의 색이 되었다.
+- Freckles are not flaws, they're identity.
+- Teach Forward, including 가르치는 일이 곧 가장 단단한 성장입니다.
+
+Contact email: hyggelife25@gmail.com, next to Instagram.
+
+## Known TODO
+
+The 정수리언니 homepage URL was not public when this page was refreshed. The third Works row links to `#todo-homepage` and is labeled `TODO · 공개 주소`. Replace that `href` with the real URL when she has it. Do not mark the page as “in preparation” unless she says so.
