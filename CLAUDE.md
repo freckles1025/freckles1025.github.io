@@ -4,7 +4,7 @@ Guidance for working on this repository. The site is the personal page of 김서
 
 ## What this site is
 
-A single static page. It shows who she is now: since September 2026 her main work is the Yeongdeungpo wig shop 김앤장가발 and its brand 정수리언니. Earlier work (TV헤어 interviews from June 2023, the September 2025 book) stays in Works.
+A single static page. It shows who she is now: since September 2026 her main work is building the wig brand 정수리언니 at the Yeongdeungpo shop 김앤장가발, for women worldwide. She does not present herself as making the wigs. Earlier work (TV헤어 interviews from June 2023, the September 2025 book) stays in Works. The public current line is “지금은 전 세계 여성을 위한 가발 브랜드를 만들고 있습니다.”
 
 Public names for the business are only 김앤장가발 and 정수리언니. Do not introduce any other company name.
 
